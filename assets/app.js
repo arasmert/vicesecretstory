@@ -83,7 +83,7 @@
     var id = el.getAttribute('data-id'); if (!id || el.querySelector('iframe')) return;
     var f = document.createElement('iframe');
     f.src = 'https://www.youtube-nocookie.com/embed/' + id + '?autoplay=1&playsinline=1&rel=0';
-    f.title = 'Video guide'; f.allow = 'accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture'; f.allowFullscreen = true;
+    f.title = el.getAttribute('data-baslik') || 'Video guide'; f.allow = 'accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture'; f.allowFullscreen = true;
     el.innerHTML = ''; el.appendChild(f);
   }
   $$('.yt').forEach(function (el) {
@@ -176,6 +176,14 @@
       [].slice.call(document.querySelectorAll('.r-bolum[id]')).forEach(function (s) { tg.observe(s); });
     }
   }
+
+  // ── dil seçici (details/summary, JS'siz de açılır): dışarı tıklayınca, Esc'e basınca ya da odak dışarı çıkınca kapanır
+  $$('.dil').forEach(function (d) {
+    var ozet = $('summary', d);
+    document.addEventListener('click', function (e) { if (d.open && !d.contains(e.target)) d.open = false; });
+    d.addEventListener('keydown', function (e) { if ((e.key === 'Escape' || e.key === 'Esc') && d.open) { d.open = false; if (ozet) ozet.focus(); } });
+    d.addEventListener('focusout', function (e) { if (d.open && e.relatedTarget && !d.contains(e.relatedTarget)) d.open = false; });
+  });
 
   // ── çerez tercihi
   var bant = $('#cerez');
