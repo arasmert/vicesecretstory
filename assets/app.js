@@ -157,6 +157,26 @@
   if (sifirla) sifirla.addEventListener('click', function () { bulunan = []; depoYaz('vss_bulunan', '[]'); ciz(); });
   ciz();
 
+
+  // ── rehber: içindekiler vurgusu + mobilde kapalı başlat
+  var toc = $('.icindekiler');
+  if (toc) {
+    if (window.matchMedia('(max-width:900px)').matches) toc.removeAttribute('open');
+    var tocLink = {};
+    [].slice.call(toc.querySelectorAll('a[href^="#"]')).forEach(function (a) { tocLink[a.getAttribute('href').slice(1)] = a; });
+    if ('IntersectionObserver' in window) {
+      var tg = new IntersectionObserver(function (gs) {
+        gs.forEach(function (g) {
+          if (g.isIntersecting && tocLink[g.target.id]) {
+            [].slice.call(toc.querySelectorAll('a.aktif')).forEach(function (x) { x.classList.remove('aktif'); });
+            tocLink[g.target.id].classList.add('aktif');
+          }
+        });
+      }, { rootMargin: '-20% 0px -70% 0px' });
+      [].slice.call(document.querySelectorAll('.r-bolum[id]')).forEach(function (s) { tg.observe(s); });
+    }
+  }
+
   // ── çerez tercihi
   var bant = $('#cerez');
   if (bant && !depoOku('vss_consent', null)) bant.hidden = false;

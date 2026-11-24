@@ -393,3 +393,62 @@ body{overflow-x:clip}
 .decoded::after{content:none;display:none}
 @keyframes parilti{from{background-position:100% 0,0 0}to{background-position:0% 0,0 0}}
 @media (prefers-reduced-motion:reduce){.decoded{animation:none}}
+
+/* ───────── v4: GTA 6 rehberleri ───────── */
+.rehber-izgara{display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:18px}
+.rehber-kart{position:relative;display:flex;flex-direction:column;gap:8px;padding:22px 22px 20px;border-radius:20px;color:var(--yazi);text-decoration:none;
+  background:linear-gradient(160deg,var(--panel2),var(--panel));border:1px solid var(--cizgi);transition:transform .25s ease,border-color .25s,box-shadow .25s;
+  transform:perspective(800px) rotateX(var(--rx,0deg)) rotateY(var(--ry,0deg))}
+.rehber-kart::before{content:"";position:absolute;left:0;right:0;top:0;height:3px;border-radius:20px 20px 0 0;background:var(--serit);opacity:.85}
+.rehber-kart:hover{border-color:rgba(255,46,136,.55);box-shadow:0 18px 40px rgba(0,0,0,.35),0 0 0 1px rgba(255,46,136,.2)}
+.rk-ust{display:flex;align-items:center;gap:10px}
+.rk-emoji{font-size:30px;line-height:1}
+.rk-kume{font:700 11px var(--mono);letter-spacing:.14em;text-transform:uppercase;color:var(--turuncu)}
+.rehber-kart b{font-family:var(--baslik);font-size:22px;line-height:1.12}
+.rk-metin{color:var(--soluk);font-size:15px;line-height:1.5}
+.rk-git{margin-top:auto;padding-top:6px;color:var(--cam);font-weight:800;font-size:14px}
+.rehber-govde{grid-template-columns:minmax(0,1fr) 300px}
+.rehber-yan{position:static;align-self:stretch;display:block}
+.icindekiler{position:sticky;top:84px;padding:16px 18px;border-radius:18px;background:var(--panel);border:1px solid var(--cizgi);max-height:calc(100vh - 110px);overflow:auto}
+.icindekiler summary{font-family:var(--baslik);font-size:16px;cursor:pointer;list-style:none}
+.icindekiler summary::-webkit-details-marker{display:none}
+.icindekiler ol{margin:10px 0 6px;padding-left:18px;font-size:14px;line-height:1.4}
+.icindekiler li{margin:8px 0;color:var(--sonuk)}
+.icindekiler a{color:var(--soluk);text-decoration:none}
+.icindekiler a:hover,.icindekiler a.aktif{color:var(--yazi)}
+.icindekiler a.aktif{box-shadow:inset 0 -2px 0 var(--pembe)}
+.tum-rehber{display:block;margin-top:8px;font-weight:800;font-size:14px;text-decoration:none}
+.r-bolum{scroll-margin-top:90px}
+.rehber-yazi .r-bolum h2{font-size:clamp(22px,2.6vw,28px);margin:40px 0 14px}
+.rehber-yazi p{margin:0 0 14px}
+.rehber-liste{margin:0 0 16px;padding-left:22px}
+.rehber-liste li{margin:8px 0;padding-left:4px}
+.rehber-liste li::marker{color:var(--pembe);font-weight:800}
+.tablo-sar{overflow-x:auto;margin:16px 0 18px;border:1px solid var(--cizgi);border-radius:14px;background:rgba(255,255,255,.015)}
+.tablo-sar:focus{outline:2px solid var(--cam);outline-offset:2px}
+.tablo-sar table{width:100%;border-collapse:collapse;font-size:15px;line-height:1.45}
+.tablo-sar th{text-align:left;font:700 12px var(--mono);letter-spacing:.08em;text-transform:uppercase;color:var(--gunes);background:rgba(255,255,255,.04);padding:12px 14px;border-bottom:1px solid var(--cizgi);white-space:nowrap}
+.tablo-sar td{padding:11px 14px;border-bottom:1px solid rgba(255,255,255,.06);vertical-align:top;min-width:120px}
+.tablo-sar td:first-child{font-weight:700;color:var(--yazi)}
+.tablo-sar tr:last-child td{border-bottom:0}
+.tablo-sar tbody tr:nth-child(even){background:rgba(255,255,255,.025)}
+.ipucu-kutu{margin:16px 0 18px;padding:14px 16px;border-left:3px solid var(--cam);background:rgba(38,226,255,.07);border-radius:0 12px 12px 0}
+.ipucu-kutu b{font:700 12px var(--mono);letter-spacing:.14em;text-transform:uppercase;color:var(--cam)}
+.ipucu-kutu p{margin:4px 0 0}
+details.spoiler{border:1px dashed rgba(255,209,102,.5);border-radius:14px;padding:12px 16px;background:rgba(255,209,102,.05)}
+details.spoiler summary{cursor:pointer;font-weight:800;color:var(--gunes)}
+details.spoiler[open] summary{margin-bottom:10px}
+.spoiler-not{padding:10px 14px;border-radius:12px;background:rgba(255,209,102,.1);color:var(--gunes);font-weight:700}
+.kaynaklar ol{font-size:13px;color:var(--sonuk);padding-left:20px;margin:10px 0 0}
+.kaynaklar li{margin:6px 0}
+.kaynaklar a{color:var(--soluk);word-break:break-word}
+.bolge-liste{list-style:none;padding:0;margin:0;display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:12px}
+.bolge-liste li{padding:14px 16px;border-radius:14px;background:var(--panel);border:1px solid var(--cizgi)}
+.bolge-liste b{display:block;color:var(--gunes);margin-bottom:4px}
+.bolge-liste span{font-size:14px;color:var(--soluk);line-height:1.5}
+.mini-harita.genis{margin-top:16px}
+@media (max-width:900px){
+  .rehber-govde{grid-template-columns:minmax(0,1fr)}
+  .rehber-yan{order:-1;display:block}
+  .icindekiler{position:static;max-height:none}
+}
